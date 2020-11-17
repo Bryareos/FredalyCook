@@ -46,18 +46,24 @@ class AppFixtures extends Fixture
         // Génération de 3 catégories
         $entrees = new Category();
         $entrees->setName('Entrées');
+        $manager->persist($entrees);
         $plats = new Category();
         $plats->setName('Plats');
+        $manager->persist($plats);
         $desserts = new Category();
         $desserts->setName('Desserts');
+        $manager->persist($desserts);
 
         //Tomate, mozza, mayo
         $tomate = new Ingredient();
         $tomate->setName('Tomate');
+        $manager->persist($tomate);
         $mozza = new Ingredient();
         $mozza->setName('Mozza');
+        $manager->persist($mozza);
         $mayo = new Ingredient();
         $mayo->setName('Mayonnaise');
+        $manager->persist($mayo);
 
         // Génération de 6 entrées
         for ($i = 0; $i < 6; $i++) {
@@ -74,10 +80,13 @@ class AppFixtures extends Fixture
         //Riz, Crevette, Saumon
         $riz = new Ingredient();
         $riz->setName('Riz');
+        $manager->persist($riz);
         $crevette = new Ingredient();
         $crevette->setName('Crevette');
+        $manager->persist($crevette);
         $saumon = new Ingredient();
         $saumon->setName('Saumon');
+        $manager->persist($saumon);
 
         // Génération de 5 plats
         for ($j = 0; $j < 5; $j++) {
@@ -94,10 +103,13 @@ class AppFixtures extends Fixture
         //Lait, oeuf, beurre
         $lait = new Ingredient();
         $lait->setName('Lait');
+        $manager->persist($lait);
         $oeuf = new Ingredient();
         $oeuf->setName('Oeuf');
+        $manager->persist($oeuf);
         $beurre = new Ingredient();
         $beurre->setName('Beurre');
+        $manager->persist($beurre);
 
         // Génération de 4 desserts
         for ($k = 0; $k < 4; $k++) {
@@ -110,9 +122,7 @@ class AppFixtures extends Fixture
             $dessertRecipe->setIsChecked(true);
             $manager->persist($dessertRecipe);
         }
-
-
-
+        
         $manager->flush();
     }
 }
