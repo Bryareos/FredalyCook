@@ -43,7 +43,7 @@ class UserProfile
      * @ORM\OneToOne(targetEntity=User::class, inversedBy="userProfile", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $userId;
+    private $user;
 
     /**
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="userProfile", orphanRemoval=true)
@@ -108,14 +108,14 @@ class UserProfile
         return $this;
     }
 
-    public function getUserId(): ?User
+    public function getUser(): ?User
     {
-        return $this->userId;
+        return $this->user;
     }
 
-    public function setUserId(User $userId): self
+    public function setUserId(User $user): self
     {
-        $this->userId = $userId;
+        $this->user = $user;
 
         return $this;
     }
