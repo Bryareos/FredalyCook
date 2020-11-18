@@ -64,6 +64,11 @@ class Recipe
      */
     private $ingredients;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $img;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -234,6 +239,18 @@ class Recipe
                 $ingredient->setRecipe(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImg(): ?string
+    {
+        return $this->img;
+    }
+
+    public function setImg(string $img): self
+    {
+        $this->img = $img;
 
         return $this;
     }
