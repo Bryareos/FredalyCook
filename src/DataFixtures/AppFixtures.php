@@ -73,6 +73,7 @@ class AppFixtures extends Fixture
             $entreeRecipe->setCookTime($faker->numberBetween(15, 180));
             $entreeRecipe->setLevel($faker->numberBetween(1, 5));
             $entreeRecipe->setInstructions($faker->realText(200));
+            $entreeRecipe->setImg('https://picsum.photos/300/400');
             $entreeRecipe->setIsChecked(true);
             $manager->persist($entreeRecipe);
         }
@@ -96,6 +97,7 @@ class AppFixtures extends Fixture
             $platRecipe->setCookTime($faker->numberBetween(30, 180));
             $platRecipe->setLevel($faker->numberBetween(1, 5));
             $platRecipe->setInstructions($faker->realText(200));
+            $platRecipe->setImg('https://picsum.photos/300/400');
             $platRecipe->setIsChecked(false);
             $manager->persist($platRecipe);
         }
@@ -119,10 +121,11 @@ class AppFixtures extends Fixture
             $dessertRecipe->setCookTime($faker->numberBetween(15, 180));
             $dessertRecipe->setLevel($faker->numberBetween(1, 5));
             $dessertRecipe->setInstructions($faker->realText(200));
+            $dessertRecipe->setImg('https://picsum.photos/300/400');
             $dessertRecipe->setIsChecked(true);
             $manager->persist($dessertRecipe);
         }
-        
+
         $manager->flush();
     }
 }
