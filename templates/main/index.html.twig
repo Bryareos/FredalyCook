@@ -3,14 +3,25 @@
 {% block title %}{{ parent() }}{% endblock %}
 
 {% block body %}
-    <main class="container row mx-auto justify-content-between">
+    <main class="container-fluid justify-content-center row mx-auto">
         {% for recipe in recipes %}
-                <div class="card mb-5" style="width: 16rem!important">
-                    <img src="{{ recipe.img }}" class="card-img-top" alt="" width="300">
-                    <div class="card-body">
-                        <h4 class="card-title text-center font-weight-bolder">{{ recipe.name }}</h4>
+            <div class="card-recipe">
+                <div class="recipe-details">
+                    <div class="recipe-duration">
+                        <p><span>{{ recipe.cookTime }}</span>mins</p>
+                    </div>
+                    {% if recipe.isChecked is same as true %}
+                    <div class="recipe-certified">
+                        <p><span><i class="fas fa-stamp"></i></span>certifié</p>
+                    </div>
+                    {% endif %}
+                    <div class="recipe-rate">
+                        <p><span><i class="fas fa-star mt-3"></i></span><span style="font-size: 3em; margin-top: -10px;">4</span></p>
                     </div>
                 </div>
+                <img src="{{ recipe.img }}" alt="{{ recipe.name }}">
+                <h2>{{ recipe.name }}</h2>
+            </div>
         {% endfor %}
     </main>
 {% endblock %}

@@ -1,0 +1,104 @@
+.card-recipe {
+  position: relative;
+  margin: 20px;
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+  box-shadow: 0 5px 10px rgba(#000, .8);
+  border-radius: 12px;
+  transform-origin: center top;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+  transition: .3s;
+
+  .recipe-details {
+   position: absolute;
+    .recipe-duration, .recipe-certified {
+      background: #304FFE;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin: 10px;
+      text-align: center;
+      font-size: 0.4em;
+      transform: translatex(-120%);
+      transition: transform 0.3s ease-in;
+      text-transform: uppercase;
+    }
+    .recipe-rate {
+      background: #304FFE;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin: 10px;
+      text-align: center;
+      font-size: 0.4em;
+      transform: translatex(500%);
+      transition: transform 0.3s ease-in;
+      text-transform: uppercase;
+    }
+    p {
+      margin-top: 10px;
+      color: #FDD835;
+    }
+    span {
+      display: block;
+      font-size: 4em;
+    }
+  }
+
+  img {
+    width: 100%;
+    min-height: 100%;
+  }
+
+  h2 {
+    color: #FDD835;
+    font-size: 2em;
+    font-weight: bold;
+    font-family: "Enriqueta", serif;
+    position: absolute;
+    background-color: #304FFE;
+    padding-bottom: 10px;
+    bottom: -10px;
+    border-radius: 15px;
+    width: 100%;
+    text-align: center;
+  }
+
+  &:after {
+    position: absolute;
+    content: '';
+    z-index: 10;
+    width: 200%;
+    height: 100%;
+    top: -100%;
+    left: -20px;
+    opacity: 1;
+    transform: rotate(45deg);
+    background: linear-gradient(to top, transparent, #fff 15%, rgba(#fff, .5));
+    transition: .3s;
+  }
+  &:hover {
+    box-shadow: 0 8px 16px 3px rgba(#000, .6);
+    transform: translateY(-3px) scale(1.05) rotateX(15deg);
+    .recipe-certified,
+    .recipe-duration, .recipe-rate {
+      transform: translatex(0);
+    }
+
+    &:after {
+      transform: rotate(25deg);
+      top: -40%;
+      opacity: .15;
+    }
+  }
+}
