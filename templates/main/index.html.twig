@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}{% endblock %}
+
+{% block body %}
+    <main class="container row mx-auto justify-content-between">
+        {% for recipe in recipes %}
+                <div class="card mb-5" style="width: 16rem!important">
+                    <img src="{{ recipe.img }}" class="card-img-top" alt="" width="300">
+                    <div class="card-body">
+                        <h4 class="card-title text-center font-weight-bolder">{{ recipe.name }}</h4>
+                    </div>
+                </div>
+        {% endfor %}
+    </main>
+{% endblock %}
