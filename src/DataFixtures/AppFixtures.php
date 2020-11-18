@@ -122,7 +122,7 @@ class AppFixtures extends Fixture
             $dessertRecipe->setIsChecked(true);
             $manager->persist($dessertRecipe);
         }
-        
+
         $manager->flush();
     }
 }
