@@ -11,6 +11,9 @@
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
+{% block navbar %}
+    {{ include('_partials/_navbar.html.twig') }}
+{% endblock %}
 {% block body %}{% endblock %}
 {{ encore_entry_script_tags('app') }}
 <script type="text/javascript" src="{{ asset('build/js/jquery.min.js') }}"></script>
