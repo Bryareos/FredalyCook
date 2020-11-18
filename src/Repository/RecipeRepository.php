@@ -26,7 +26,6 @@ class RecipeRepository extends ServiceEntityRepository
     public function findTheBestHeightRecipes()
     {
         return $this->createQueryBuilder('recipe')
-            ->select('recipe.id', 'recipe.name', 'recipe.img')
             ->join('recipe.ratings', 'ratings')
             ->orderBy('ratings.rate', 'DESC')
             ->setMaxResults(8)
