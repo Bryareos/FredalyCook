@@ -19,23 +19,27 @@ class RecipeRepository extends ServiceEntityRepository
         parent::__construct($registry, Recipe::class);
     }
 
-    // /**
-    //  * @return Recipe[] Returns an array of Recipe objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+    * @return Recipe[] Returns an array of Recipe objects
+    */
+
+    public function findTheBestHeightRecipes()
     {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('r.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('recipe')
+            ->select('recipe.id', 'recipe.name', 'recipe.img')
+            ->join('recipe.ratings', 'ratings')
+            ->orderBy('ratings.rate', 'DESC')
+            ->setMaxResults(8)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
+
+//public function findTheBestHeightRecipes()
+//{
+//    return $this->createNativeNamedQuery('SELECT recipe.id, recipe.name, rating.rate FROM recipe JOIN rating ON recipe.id = rating.recipe_id ORDER BY rating.rate DESC');
+//}
     /*
     public function findOneBySomeField($value): ?Recipe
     {
