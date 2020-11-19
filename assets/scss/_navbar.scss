@@ -1,8 +1,14 @@
 .navbar-nav {
-  #login {
+  #login_btn {
     color: #FDD835;
     font-weight: bold;
     background-color: transparent;
     border: 2px solid #FDD835;
+
+    &:hover {
+      color: #3f51b5;
+      background-color: #FDD835;
+      border-color: #3f51b5;
+    }
   }
 }
