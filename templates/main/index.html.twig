@@ -3,26 +3,34 @@
 {% block title %}{{ parent() }}{% endblock %}
 
 {% block body %}
-    <main class="container justify-content-between row mx-auto">
-        {% for recipe in recipes %}
-            <div class="card-recipe">
-                <a href="#" class="stretched-link"></a>
-                <div class="recipe-details">
-                    <div class="recipe-duration">
-                        <p><span>{{ recipe.cookTime }}</span>mins</p>
+    <main class="container bg-white shadow" style="border-radius: 10px !important">
+        <h1 class="text-center pt-4 indigo-text">Trouver une recette...</h1>
+        <form class="form-inline active-indigo justify-content-center font-weight-bold">
+            <i class="fas fa-search indigo-text" aria-hidden="true"></i>
+            <input class="form-control form-control-sm ml-3 w-75 rounded-pill shadow" type="text" placeholder="Je cherche.."
+                   aria-label="Search">
+        </form>
+        <section class="justify-content-between row mx-auto">
+            {% for recipe in recipes %}
+                <div class="card-recipe">
+                    <a href="{{ path('show_recipe', {'id': recipe.id}) }}" class="stretched-link"></a>
+                    <div class="recipe-details">
+                        <div class="recipe-duration">
+                            <p><span>{{ recipe.cookTime }}</span>mins</p>
+                        </div>
+                        {% if recipe.isChecked is same as true %}
+                            <div class="recipe-certified">
+                                <p><span><i class="fas fa-stamp"></i></span>certifié</p>
+                            </div>
+                        {% endif %}
+                        <div class="recipe-rate">
+                            <p><span><i class="fas fa-star mt-3"></i></span><span style="font-size: 3em; margin-top: -10px;">4</span></p>
+                        </div>
                     </div>
-                    {% if recipe.isChecked is same as true %}
-                    <div class="recipe-certified">
-                        <p><span><i class="fas fa-stamp"></i></span>certifié</p>
-                    </div>
-                    {% endif %}
-                    <div class="recipe-rate">
-                        <p><span><i class="fas fa-star mt-3"></i></span><span style="font-size: 3em; margin-top: -10px;">4</span></p>
-                    </div>
+                    <img src="{{ recipe.img }}" alt="{{ recipe.name }}">
+                    <h2>{{ recipe.name }}</h2>
                 </div>
-                <img src="{{ recipe.img }}" alt="{{ recipe.name }}">
-                <h2>{{ recipe.name }}</h2>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </section>
     </main>
 {% endblock %}
