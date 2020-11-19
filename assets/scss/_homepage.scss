@@ -4,8 +4,8 @@
   width: 300px;
   height: 400px;
   overflow: hidden;
-  box-shadow: 0 5px 10px rgba(#000, .8);
-  border-radius: 12px;
+  box-shadow: 0 4px 7px rgba(#000, .8);
+  border-radius: 4px;
   transform-origin: center top;
   transform-style: preserve-3d;
   transform: translateZ(0);
@@ -14,7 +14,7 @@
   .recipe-details {
    position: absolute;
     .recipe-duration, .recipe-certified {
-      background: #304FFE;
+      background: #3f51b5;
       width: 60px;
       height: 60px;
       display: flex;
@@ -30,7 +30,7 @@
       text-transform: uppercase;
     }
     .recipe-rate {
-      background: #304FFE;
+      background: #3f51b5;
       width: 60px;
       height: 60px;
       display: flex;
@@ -66,10 +66,9 @@
     font-weight: bold;
     font-family: "Enriqueta", serif;
     position: absolute;
-    background-color: #304FFE;
+    background-color: #3f51b5;
     padding-bottom: 10px;
     bottom: -10px;
-    border-radius: 15px;
     width: 100%;
     text-align: center;
   }
@@ -80,7 +79,7 @@
     z-index: 10;
     width: 200%;
     height: 100%;
-    top: -100%;
+    top: -108%;
     left: -20px;
     opacity: 1;
     transform: rotate(45deg);
