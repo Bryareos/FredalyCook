@@ -50,9 +50,15 @@ class UserProfile
      */
     private $comments;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Recipe::class, mappedBy="user")
+     */
+    private $recipes;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->recipes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -144,6 +150,36 @@ class UserProfile
             // set the owning side to null (unless already changed)
             if ($comment->getUserProfile() === $this) {
                 $comment->setUserProfile(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Recipe[]
+     */
+    public function getRecipes(): Collection
+    {
+        return $this->recipes;
+    }
+
+    public function addRecipe(Recipe $recipe): self
+    {
+        if (!$this->recipes->contains($recipe)) {
+            $this->recipes[] = $recipe;
+            $recipe->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecipe(Recipe $recipe): self
+    {
+        if ($this->recipes->removeElement($recipe)) {
+            // set the owning side to null (unless already changed)
+            if ($recipe->getUser() === $this) {
+                $recipe->setUser(null);
             }
         }
 

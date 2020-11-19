@@ -69,6 +69,17 @@ class Recipe
      */
     private $img;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=UserProfile::class, inversedBy="recipes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $bakingTime;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -251,6 +262,30 @@ class Recipe
     public function setImg(string $img): self
     {
         $this->img = $img;
+
+        return $this;
+    }
+
+    public function getUser(): ?UserProfile
+    {
+        return $this->user;
+    }
+
+    public function setUser(?UserProfile $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getBakingTime(): ?int
+    {
+        return $this->bakingTime;
+    }
+
+    public function setBakingTime(?int $bakingTime): self
+    {
+        $this->bakingTime = $bakingTime;
 
         return $this;
     }
