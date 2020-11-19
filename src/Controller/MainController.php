@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("", name="homepage")
      * @param RecipeRepository $repo
      * @return Response
      */
