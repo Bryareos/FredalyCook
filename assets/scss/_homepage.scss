@@ -11,6 +11,10 @@
   transform: translateZ(0);
   transition: .3s;
 
+  .stretched-link:after {
+    z-index: 11;
+  }
+
   .recipe-details {
    position: absolute;
     .recipe-duration, .recipe-certified {
