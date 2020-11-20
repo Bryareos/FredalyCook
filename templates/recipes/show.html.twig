@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - {{ recipe.name }}{% endblock %}
+{% block body %}
+    {% dump(recipe) %}
+    <main class="container bg-white">
+        <section id="recipe" class="recipe">
+            <div class="recipe-author pt-3">
+                <p class="font-weight-bolder"><i class="fas fa-user indigo-text"></i> {{ recipe.user.firstName }} {{ recipe.user.lastName }}</p>
+            </div>
+            <div class="recipe-header">
+                <div class="recipe-title text-center">
+                    <h1>{{ recipe.name }}</h1>
+                </div>
+                <div class="recipe-rate row justify-content-center">
+                    <div class="recipe-rate__stars indigo-text mr-2">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <div class="recipe-rate__rating">4/5</div>
+                </div>
+                <div class="recipe-categorie text-center">
+                    <a href="#" class="btn btn-sm btn-outline-indigo rounded-pill">{{ recipe.category.name | join() }}</a>
+                </div>
+            </div>
+            <div class="recipe-img text-center mt-3">
+                <img src="{{ recipe.img }}" class="rounded-lg" alt="{{ recipe.name}}">
+            </div>
+            <div class="recipe-content pt-3 mt-4 border-top">
+                <div class="recipe-infos row justify-content-around">
+                    <div class="recipe-infos__total-time d-flex flex-column text-center">
+                        <span class="font-weight-bold">Temps</span>
+                        <span>{{ recipe.cookTime }} mins</span>
+                    </div>
+                    <div class="recipe-infos__quantity d-flex flex-column text-center">
+                        <span class="font-weight-bold">Personnes</span>
+                        <span>2</span>
+                    </div>
+                    <div class="recipe-infos__level d-flex flex-column text-center">
+                        <span class="font-weight-bold">Moyen</span>
+                        <div class="recipe-infos__level-circle indigo-text">
+                            <i class="fas fa-circle"></i>
+                            <i class="fas fa-circle"></i>
+                            <i class="fas fa-circle"></i>
+                            <i class="far fa-circle"></i>
+                        </div>
+                    </div>
+                    <div class="recipe-infos__certif indigo-text d-flex flex-column justify-content-center font-weight-bold">
+                        <i class="fas fa-stamp"></i>
+                    </div>
+                </div>
+                <div class="recipe-description row mt-4">
+                    <div class="col-5 recipe-description__ingredients border-right">
+                        <h2 class="h4 indigo-text text-center">Ingrédients</h2>
+                        <ul class="list-unstyled list-ingredients text-center mt-3">
+                            {% for i in 1..6 %}
+                                <img src="https://picsum.photos/50/30" alt="">
+                                <li>Ingrédient {{ i }}</li>
+                            {%  endfor %}
+                        </ul>
+                    </div>
+                    <div class="col-7 recipe-description__prepa">
+                        <h2 class="h4 indigo-text text-center">Préparation</h2>
+                        <div class="recipe-intro row justify-content-center mt-3 p-2 mx-3">
+                            <span class="font-weight-bolder mr-1">Temps Total : </span>
+                            <span>{{ recipe.cookTime}}</span>
+                        </div>
+                        <div class="recipe-intro justify-content-center row mx-3">
+                            <div class="recipe-intro__prepa-time p-2">
+                                <span class="font-weight-bolder mr-1">Préparation :</span>
+                                <span>10 min</span>
+                            </div>
+                            <div class="recipe-intro__baking-time p-2">
+                                <span class="font-weight-bolder mr-1">Cuisson :</span>
+                                <span>{{ recipe.bakingTime }} min</span>
+                            </div>
+                        </div>
+                        <ul class="recipe-preparation-steps mt-3">
+                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda at, consectetur
+                                consequuntur deleniti earum et hic impedit inventore ipsum magni numquam officiis provident
+                                quaerat quas quis rem sequi tempora, tempore.
+                            </li>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda at, consectetur
+                                consequuntur deleniti earum et hic impedit inventore ipsum magni numquam officiis provident
+                                quaerat quas quis rem sequi tempora, tempore.
+                            </li>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda at, consectetur
+                                consequuntur deleniti earum et hic impedit inventore ipsum magni numquam officiis provident
+                                quaerat quas quis rem sequi tempora, tempore.
+                            </li>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda at, consectetur
+                                consequuntur deleniti earum et hic impedit inventore ipsum magni numquam officiis provident
+                                quaerat quas quis rem sequi tempora, tempore.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+
+
+
